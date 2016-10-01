@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b2cc00598e324989e3ca252cd77d5575b96d9510.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_6aa11768d7f95b94fcdab9c8c1caa854918d618b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_99f9c3fd63efb505d0ce34de751efaee927f4d77.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_ca98316226608a89ac78211a3ad9773bdb734677.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_05c885cacd7152090b942c50c9326adb90d68eae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_42c4de8f12f4df7d3aa4547f04a224719dea275e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_c776647aa2699c9cb9d5adff9a85b2fb6171f700.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_ca81b817d713415820df552a17c88968b235d06a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_9d67249045701494dbdc5a43610555da8835b80d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="41ca6bb70a0015e2ba299688f184912f9ed9734e">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_534370dc95dca428961e34765e96a9cf002ac384.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_ca602efd89476a2e055cd303ecdfbd5818a8081a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_cc7fb91f80e3f391eef49498126f1fed6a155287.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_f8bd41a791853ceeb55aea19b09bcce6eef1358e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_fad30b41895b7341bf33dffcdd18aa37cd58e8ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7c8b8c06f0bc70d6707e648abb3349d6cb23de2e">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run_1271029fa06a883531f2096181d8f4617f4d43e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_d42783aaf07d123aeb55d053d35f2ca3e325aff7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_39c831ee65a28447dd661b625e83b0e805414474.jar" />
+    </item>
+
+</items>
