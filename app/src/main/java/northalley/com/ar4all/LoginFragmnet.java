@@ -9,13 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
+/*
+*
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  *
  * Use the {@link LoginFragmnet#//newInstance} factory method to
  * create an instance of this fragment.
- */
+*/
 public class LoginFragmnet extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

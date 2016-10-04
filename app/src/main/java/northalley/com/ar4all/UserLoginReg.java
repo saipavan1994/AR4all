@@ -1,5 +1,6 @@
 package northalley.com.ar4all;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UserLoginReg extends FragmentActivity{
+public class UserLoginReg extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class UserLoginReg extends FragmentActivity{
          */
         LoginFragmnet login = new LoginFragmnet();
         login.setArguments(getIntent().getExtras());
-        /*Fragment is loaded into the container*/
+       // Fragment is loaded into the container
         getSupportFragmentManager().beginTransaction().add(R.id.user_reg_login,login).commit();
       final EditText  pwd = (EditText)findViewById(R.id.password_text);
       final EditText  eml =(EditText)findViewById(R.id.emailid_text);
