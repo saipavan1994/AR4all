@@ -4,43 +4,50 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="32618277034589"
+    timestamp="8650923133601"
     token="1690923132874790970"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="346" />
+        duration="408" />
     <task
         name="instant-run-dex"
-        duration="15" />
+        duration="29" />
     <task
         name="instant-run-transform"
-        duration="38" />
+        duration="41" />
     <task
         name="verifier"
-        duration="2" />
+        duration="3" />
 
     <artifact
         location="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\reload-dex\debug\classes.dex"
         type="RELOAD_DEX" />
 
     <build
-        timestamp="32517486922963"
+        timestamp="8505136167840"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="32587821435362"
+        timestamp="8543450030412"
         verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\builds\debug\32587821435362\classes.dex"
+            location="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="8611190453039"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\builds\debug\8611190453039\classes.dex"
             type="RELOAD_DEX" />
     </build>
     <build
-        timestamp="32618277034589"
+        timestamp="8650923133601"
         verifier="COMPATIBLE" >
         <artifact
             location="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\reload-dex\debug\classes.dex"

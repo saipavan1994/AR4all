@@ -129,7 +129,6 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
 
 
                 File pictureFile = new File(dir_path+"snapshot-test.jpg");
-
                 outStream = new FileOutputStream(pictureFile);
                 outStream.write(data);
                 outStream.close();
