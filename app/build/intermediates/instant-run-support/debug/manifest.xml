@@ -45,6 +45,10 @@
             android:name="northalley.com.ar4all.UploadActivity"
             android:screenOrientation="portrait" />
         <activity android:name="northalley.com.ar4all.SelectAugment" />
+        <activity
+            android:name="northalley.com.ar4all.PreviewActivity"
+            android:label="@string/title_activity_preview"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

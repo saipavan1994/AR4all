@@ -20,7 +20,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 @SuppressWarnings("deprecation")
@@ -36,7 +37,7 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
         setContentView(R.layout.activity_upload);
 
 
-        //takeSnapShot();
+
     }
     @Override
     public void onResume()
@@ -125,10 +126,8 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
 
             try
             {
-                String dir_path = "/storage/sdcard0/DCIM/";
-
-
-                File pictureFile = new File(dir_path+"snapshot-test.jpg");
+                String dir_path = "/storage/sdcard0/DCIM/Camera/";
+                File pictureFile = new File(dir_path+"target.jpg");
                 outStream = new FileOutputStream(pictureFile);
                 outStream.write(data);
                 outStream.close();

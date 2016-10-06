@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:id="@+id/main_layout"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,10 +16,12 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-   <include layout="@layout/imageview"
-       android:layout_height="wrap_content"
-       android:layout_width="wrap_content"/>
+   <FrameLayout
+       android:id="@+id/grid_view"
+       android:layout_below="@id/tabLayout"
+       android:layout_marginTop="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"></FrameLayout>
 
 
-
-</LinearLayout>
+</RelativeLayout>

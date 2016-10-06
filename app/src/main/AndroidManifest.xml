@@ -7,7 +7,7 @@
     <uses-feature android:name="android.hardware.Camera" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -34,9 +34,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="northalley.com.ar4all.UserLoginReg" />
         </activity>
-        <activity android:name=".UploadActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".UploadActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".SelectAugment" />
+        <activity
+            android:name=".PreviewActivity"
+            android:label="@string/title_activity_preview"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

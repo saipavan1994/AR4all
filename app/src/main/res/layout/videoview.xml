@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/iamge"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:id="@+id/video"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="5dp"
-    android:verticalSpacing="1dp"
-    android:horizontalSpacing="1dp"
+    android:verticalSpacing="5dp"
+    android:horizontalSpacing="10dp"
     android:numColumns="auto_fit"
     android:columnWidth="100dp"
-    android:stretchMode="columnWidth"/>
+    android:stretchMode="columnWidth">
+</GridView>
     <Button
-        android:id="@+id/img_next"
+        android:id="@+id/vid_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

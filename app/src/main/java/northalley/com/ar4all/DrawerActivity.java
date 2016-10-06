@@ -47,27 +47,7 @@ public class DrawerActivity extends AppCompatActivity
         }
     }
 
-    //@Override
-   /* public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -79,7 +59,7 @@ public class DrawerActivity extends AppCompatActivity
             // Handle the camera action
             /*Intent intent = new Intent(ACTION_IMAGE_CAPTURE);
              startActivityForResult(intent,1);*/
-             Intent intent = new Intent(this,SelectAugment.class);
+             Intent intent = new Intent(this,UploadActivity.class);
              startActivity(intent);
 
         } else if (id == R.id.nav_scan) {
@@ -92,15 +72,6 @@ public class DrawerActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    @Override
-    protected void onActivityResult(int requestCode,int resultCode,Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1&&resultCode==RESULT_OK)
-        {
-            Intent intent1 = new Intent(this,UploadActivity.class);
-            startActivity(intent1);
-        }
-    }
+
 
 }
