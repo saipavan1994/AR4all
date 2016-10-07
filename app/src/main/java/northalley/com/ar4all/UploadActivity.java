@@ -129,7 +129,18 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
                 String dir_path = "/storage/sdcard0/DCIM/Camera/";
                 File pictureFile = new File(dir_path+"target.jpg");
                 outStream = new FileOutputStream(pictureFile);
-                outStream.write(data);
+                Bitmap realImage = BitmapFactory.decodeByteArray(data, 0, data.length);
+                ExifInterface exif=new ExifInterface(pictureFile.toString());
+                if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("6")){
+                    realImage= rotate(realImage, 90);
+                } else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("8")){
+                    realImage= rotate(realImage, 270);
+                } else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("3")){
+                    realImage= rotate(realImage, 180);
+                } else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("0")){
+                    realImage= rotate(realImage, 90);
+                }
+                boolean bo = realImage.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
                 outStream.close();
             }
             catch (FileNotFoundException e) { e.printStackTrace(); }
@@ -141,7 +152,16 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
 
         }
     };
+    public static Bitmap rotate(Bitmap bitmap, int degree) {
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
 
+        Matrix mtx = new Matrix();
+        //       mtx.postRotate(degree);
+        mtx.setRotate(degree);
+
+        return Bitmap.createBitmap(bitmap, 0, 0, w, h, mtx, true);
+    }
     public void captureImage(View v)
     {
         //mCamera.startPreview();

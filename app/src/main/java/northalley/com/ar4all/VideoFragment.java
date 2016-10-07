@@ -32,7 +32,7 @@ public class VideoFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private Cursor vCursor;
     private int vColumnIndex;
-
+    private String vidPath;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -75,11 +75,14 @@ public class VideoFragment extends Fragment {
         View view = inflater.inflate(R.layout.videoview,container,false);
         GridView gridView = (GridView)view.findViewById(R.id.video);
         Button vid_button = (Button)view.findViewById(R.id.vid_next);
+        /*We are using a button with name next so that if user unknowingly touches a thumbnail it will not go to next page
+        * After clicking the next button the videopath is passed to intent*/
         vid_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(),UserLoginReg.class);
+                Intent intent = new Intent(getActivity(),PreviewActivity.class);
+                intent.putExtra("path",vidPath);
                 startActivity(intent);
             }
         });
@@ -88,6 +91,8 @@ public class VideoFragment extends Fragment {
                // Get the column index of the Thumbnails Video ID
         vColumnIndex=vCursor.getColumnIndexOrThrow(MediaStore.Video.Thumbnails._ID);
         gridView.setAdapter(new VideoAdapter(view.getContext()));
+        //Here we are setting the listener for user selection, when user touches a thumbnail its position is read by the
+        //listener and with that position we can get the path of video
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // Get the data location of the image
@@ -99,12 +104,10 @@ public class VideoFragment extends Fragment {
                         null);
                 vColumnIndex = vCursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
                 vCursor.moveToPosition(position);
-                // Get image filename
-                String imagePath = vCursor.getString(vColumnIndex);
-                // Use this path to do further processing, i.e. full screen display
-                Log.d("path",imagePath);
+                // Get video filename
+                vidPath = vCursor.getString(vColumnIndex);
                 Toast.makeText(getContext(),"Selected",Toast.LENGTH_LONG).show();
-
+                vCursor.close();
             }
         });
         return view;

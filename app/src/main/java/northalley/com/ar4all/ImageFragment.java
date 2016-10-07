@@ -4,7 +4,9 @@ package northalley.com.ar4all;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.Image;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -76,6 +78,8 @@ public class ImageFragment extends Fragment {
                              Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.imageview,container,false);
         Button button = (Button)view.findViewById(R.id.img_next);
+        /*We are using a button with name next so that if user unknowingly touches a thumbnail it will not go to next page
+        * After clicking the next button the videopath is passed to intent*/
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
@@ -97,6 +101,8 @@ public class ImageFragment extends Fragment {
         columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Thumbnails._ID);
 
         gridView.setAdapter(new ImageAdapter(view.getContext()));
+        //Here we are setting the listener for user selection, when user touches a thumbnail its position is read by the
+        //listener and with that position we can get the path of image
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // Get the data location of the image
@@ -111,7 +117,7 @@ public class ImageFragment extends Fragment {
                 cursor.moveToPosition(position);
                 // Get image filename
                  imagePath = cursor.getString(columnIndex);
-                // Use this path to do further processing, i.e. full screen display
+
                 Toast.makeText(getContext(),"Selected",Toast.LENGTH_LONG).show();
                 cursor.close();
 
@@ -149,7 +155,7 @@ public class ImageFragment extends Fragment {
             // Move cursor to current position
             cursor.moveToPosition(position);
             // Get the current value for the requested column
-            int imageID = cursor.getInt(columnIndex);
+             int imageID = cursor.getInt(columnIndex);
             // Set the content of the image based on the provided URI
             picturesView.setImageURI(Uri.withAppendedPath(
                     MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));
@@ -158,6 +164,7 @@ public class ImageFragment extends Fragment {
             picturesView.setLayoutParams(new GridView.LayoutParams(210,210));
             return picturesView;
         }
+
     }
 
 }
