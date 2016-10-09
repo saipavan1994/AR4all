@@ -74,6 +74,7 @@ public class VideoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.videoview,container,false);
         GridView gridView = (GridView)view.findViewById(R.id.video);
+        gridView.setDrawSelectorOnTop(false);
         Button vid_button = (Button)view.findViewById(R.id.vid_next);
         /*We are using a button with name next so that if user unknowingly touches a thumbnail it will not go to next page
         * After clicking the next button the videopath is passed to intent*/
@@ -81,6 +82,7 @@ public class VideoFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
+
                 Intent intent = new Intent(getActivity(),PreviewActivity.class);
                 intent.putExtra("path",vidPath);
                 startActivity(intent);
@@ -107,7 +109,7 @@ public class VideoFragment extends Fragment {
                 // Get video filename
                 vidPath = vCursor.getString(vColumnIndex);
                 Toast.makeText(getContext(),"Selected",Toast.LENGTH_LONG).show();
-                vCursor.close();
+
             }
         });
         return view;

@@ -89,7 +89,8 @@ public class ImageFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        GridView gridView = (GridView)view.findViewById(R.id.iamge);
+        final GridView gridView = (GridView)view.findViewById(R.id.iamge);
+        gridView.setDrawSelectorOnTop(false);
         String[] projection = {MediaStore.Images.Thumbnails._ID};
         // Create the cursor pointing to the SDCard
         cursor = getContext().getContentResolver().query( MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
@@ -99,14 +100,12 @@ public class ImageFragment extends Fragment {
                 MediaStore.Images.Thumbnails.IMAGE_ID);
         // Get the column index of the Thumbnails Image ID
         columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Thumbnails._ID);
-
-        gridView.setAdapter(new ImageAdapter(view.getContext()));
         //Here we are setting the listener for user selection, when user touches a thumbnail its position is read by the
-        //listener and with that position we can get the path of image
+        //listener and with that position we can get the path of video
+        gridView.setAdapter(new ImageAdapter(view.getContext()));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // Get the data location of the image
-
                 String[] projection = {MediaStore.Images.Media.DATA};
                 cursor = getContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                         projection, // Which columns to return
@@ -119,7 +118,7 @@ public class ImageFragment extends Fragment {
                  imagePath = cursor.getString(columnIndex);
 
                 Toast.makeText(getContext(),"Selected",Toast.LENGTH_LONG).show();
-                cursor.close();
+
 
             }
         });
@@ -161,7 +160,7 @@ public class ImageFragment extends Fragment {
                     MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));
             picturesView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             picturesView.setPadding(5,5, 5, 5);
-            picturesView.setLayoutParams(new GridView.LayoutParams(210,210));
+            picturesView.setLayoutParams(new GridView.LayoutParams(300,300));
             return picturesView;
         }
 

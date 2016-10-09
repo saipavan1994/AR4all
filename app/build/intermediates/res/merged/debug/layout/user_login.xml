@@ -13,7 +13,7 @@
         android:id="@+id/log_in"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:text="@string/login"/>
@@ -57,6 +57,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/password_text"
         android:text="@string/log_button"
+        android:textStyle="bold"
         android:onClick="goToMain"/>
     <TextView
         android:id="@+id/newuser_reg"

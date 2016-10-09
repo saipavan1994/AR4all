@@ -40,6 +40,12 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
 
     }
     @Override
+    public void onStart()
+    {
+        super.onStart();
+        takeSnapShot();
+    }
+    @Override
     public void onResume()
     {
         super.onResume();
@@ -140,7 +146,7 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
                 } else if(exif.getAttribute(ExifInterface.TAG_ORIENTATION).equalsIgnoreCase("0")){
                     realImage= rotate(realImage, 90);
                 }
-                boolean bo = realImage.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
+                boolean bo = realImage.compress(Bitmap.CompressFormat.JPEG,100, outStream);
                 outStream.close();
             }
             catch (FileNotFoundException e) { e.printStackTrace(); }
@@ -179,6 +185,11 @@ public class UploadActivity extends AppCompatActivity implements SurfaceHolder.C
                 e.printStackTrace();
             }
         }
+    }
+    public void goBack(View v)
+    {
+        Intent intent = new Intent(this,DrawerActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -1,16 +1,24 @@
 package northalley.com.ar4all;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.SQLException;
 
 public class UserLoginReg extends FragmentActivity {
 
+    private String pass;
+    private boolean yes;
+    DBHelper db = new DBHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +31,8 @@ public class UserLoginReg extends FragmentActivity {
         login.setArguments(getIntent().getExtras());
        // Fragment is loaded into the container
         getSupportFragmentManager().beginTransaction().add(R.id.user_reg_login,login).commit();
-      final EditText  pwd = (EditText)findViewById(R.id.password_text);
-      final EditText  eml =(EditText)findViewById(R.id.emailid_text);
+
+
 
     }
     public void goToReg(View v)
@@ -53,6 +61,7 @@ public class UserLoginReg extends FragmentActivity {
         }
 
         else {
+            addToDb(username,email,password,reenter_password,phone);
             LoginFragmnet login = new LoginFragmnet();
             login.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().replace(R.id.user_reg_login, login).commit();
@@ -60,8 +69,72 @@ public class UserLoginReg extends FragmentActivity {
     }
     public void goToMain(View v)
     {
-        Intent intent = new Intent(this,DrawerActivity.class);
-        startActivity(intent);
+       final EditText pwd = (EditText)findViewById(R.id.password_text);
+       final EditText eml =(EditText)findViewById(R.id.emailid_text);
+       String paswd = pwd.getText().toString();
+       String emal = eml.getText().toString();
+
+        if(paswd.isEmpty()||emal.isEmpty()) {
+        Toast.makeText(getApplicationContext(),"Please fill in the details",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            yes = readFromDb(emal, paswd);
+            if(yes) {
+                Intent intent = new Intent(this, DrawerActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),"Please make sure you have entered correct details",Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+    public void addToDb(String user_name,String email,String pass,String re_pass,String pho)
+    {
+        SQLiteDatabase dB = db.getWritableDatabase();
+        ContentValues val = new ContentValues();
+        val.put("username",user_name);
+        val.put("phonenumber",pho);
+        val.put("email",email);
+        val.put("password",pass);
+        val.put("repassword",re_pass);
+        try {
+            dB.insert(DBHelper.TABLE_NAME,null,val);
+            Toast.makeText(getApplicationContext(), "you are successfully registered", Toast.LENGTH_SHORT).show();
+        }catch (SQLException ex){ex.printStackTrace();}
+    }
+    public  boolean readFromDb(String em, String ps)
+    {
+        SQLiteDatabase dB = db.getReadableDatabase();
+        String[] projection = {DBHelper.COLUMN_PASSWORD};
+        String selection = DBHelper.COLUMN_EMAIL+" = ?";
+        String[] selectionArgs ={em};
+        Cursor cursor;
+
+        try
+        {
+          cursor = dB.query(DBHelper.TABLE_NAME,projection,selection,selectionArgs,null,null,null);
+            cursor.moveToFirst();
+            Log.d("place","In database");
+            pass = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PASSWORD));
+            Log.d("password",pass);
+            cursor.close();
+        }catch (SQLException ex){ex.printStackTrace();}
+        if(pass.equals(ps))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        db.close();
     }
 
 }

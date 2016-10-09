@@ -9,8 +9,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="5dp"
-    android:verticalSpacing="1dp"
-    android:horizontalSpacing="1dp"
+    android:verticalSpacing="7dp"
+    android:listSelector="#00bfff"
+    android:horizontalSpacing="7dp"
     android:numColumns="auto_fit"
     android:columnWidth="100dp"
     android:stretchMode="columnWidth"/>

@@ -57,6 +57,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/password_text"
         android:text="@string/log_button"
+        android:textStyle="bold"
         android:onClick="goToMain"/>
     <TextView
         android:id="@+id/newuser_reg"

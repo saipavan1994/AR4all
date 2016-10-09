@@ -15,7 +15,7 @@
         <item>Scan</item>
         <item>About Us</item>
     </string-array>
-    <string name="title_activity_drawer">Dashboard</string>
+    <string name="title_activity_drawer">AR4all</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

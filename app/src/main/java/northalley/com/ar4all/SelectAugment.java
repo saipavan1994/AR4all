@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class SelectAugment extends FragmentActivity implements TabLayout.OnTabSelectedListener {
 
@@ -64,8 +65,21 @@ public class SelectAugment extends FragmentActivity implements TabLayout.OnTabSe
     {
 
     }
-
-
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+    }
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+    }
+    public void goBack(View v)
+    {
+     Intent intent = new Intent(this,UploadActivity.class);
+        startActivity(intent);
+    }
 }
 
 
