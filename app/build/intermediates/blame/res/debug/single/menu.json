@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\saipavan\\AndroidStudioProjects\\AR4all\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\Users\\saipavan\\AndroidStudioProjects\\AR4all\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
         "merged": "C:\\Users\\saipavan\\AndroidStudioProjects\\AR4all\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_drawer_drawer.xml",
         "source": "C:\\Users\\saipavan\\AndroidStudioProjects\\AR4all\\app\\src\\main\\res\\menu\\activity_drawer_drawer.xml"
     },

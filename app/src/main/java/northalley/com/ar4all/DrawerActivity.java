@@ -63,7 +63,8 @@ public class DrawerActivity extends AppCompatActivity
              startActivity(intent);
 
         } else if (id == R.id.nav_scan) {
-
+            Intent intent = new Intent(this,ScanActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_about) {
 
         }

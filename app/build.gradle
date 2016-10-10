@@ -5,19 +5,13 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "northalley.com.ar4all"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    lintOptions {
-        abortOnError false        // true by default
-        checkAllWarnings false
-        checkReleaseBuilds false
-        ignoreWarnings true       // false by default
-        quiet true                // false by default
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -35,4 +29,5 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
+    compile files('libs/Vuforia.jar')
 }

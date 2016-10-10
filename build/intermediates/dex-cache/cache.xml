@@ -3,6 +3,24 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b2cc00598e324989e3ca252cd77d5575b96d9510.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\libs\Vuforia.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c0b912ee883b3f96c6170cafb3fe58c682d95629">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\Vuforia_67f73e64a5499c042db4ea5369388e62ea955fb1.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -66,6 +84,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_4f8ca1ac6d1813a443287e525574f3d0dad2d5f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -75,12 +102,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\libs\json-simple-1.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5d6f9b6a9ddca2a28c0216cc44efb2e20d9c23b5">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\json-simple-1.1.1_77ef78b69c6098561b06bdb0cb66d6561090fcf4.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="6e1df4d73c5dc8d338c0df0be3e17b693fb9110c">
+        sha1="8ac117eb0053376e7f401df7ba3f4ead5576348a">
         <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_534370dc95dca428961e34765e96a9cf002ac384.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_877fce8b7b184cb983ef12ffe35938e5363b17cc.jar" />
     </item>
     <item
         is-multidex="false"
@@ -102,42 +147,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="13d77515e32b54408f435a56ee658da4932f961e">
-        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run_1271029fa06a883531f2096181d8f4617f4d43e9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b2cc00598e324989e3ca252cd77d5575b96d9510.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_4f8ca1ac6d1813a443287e525574f3d0dad2d5f2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_877fce8b7b184cb983ef12ffe35938e5363b17cc.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -153,6 +162,15 @@
         revision="24.0.2"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
         <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_fad30b41895b7341bf33dffcdd18aa37cd58e8ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="13d77515e32b54408f435a56ee658da4932f961e">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run_1271029fa06a883531f2096181d8f4617f4d43e9.jar" />
     </item>
     <item
         is-multidex="false"

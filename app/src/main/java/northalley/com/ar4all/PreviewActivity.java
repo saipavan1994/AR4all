@@ -46,7 +46,7 @@ public class PreviewActivity extends AppCompatActivity {
             Log.d("path", ext[0]);
             Log.d("path", augPath);
             //If the path is image we need to populate imageview for augment else need to go for video view
-            if (ext[1].equals("jpg") || ext[1].equals("png")) {
+            if (ext[1].equals("jpg") || ext[1].equals("png")||ext[1].equals("jpeg")) {
                 Log.d("path", augPath);
                 ImageView augView = (ImageView) findViewById(R.id.augment);
                 augView.setImageBitmap(BitmapFactory.decodeFile(augPath));
@@ -55,7 +55,7 @@ public class PreviewActivity extends AppCompatActivity {
                 when there is a video file*/
                 RelativeLayout layout = (RelativeLayout) findViewById(R.id.activity_preview2);
                 augView = new VideoView(this);
-                RelativeLayout.LayoutParams param = new RelativeLayout.LayoutParams(300, 300);
+                RelativeLayout.LayoutParams param = new RelativeLayout.LayoutParams(400, 400);
                 param.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
                 augView.setLayoutParams(param);
                 layout.addView(augView);
