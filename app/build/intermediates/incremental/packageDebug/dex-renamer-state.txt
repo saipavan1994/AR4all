@@ -1,4 +1,4 @@
-#Sun Oct 09 17:11:37 IST 2016
+#Mon Oct 10 18:34:40 IST 2016
 base.0=C\:\\Users\\saipavan\\AndroidStudioProjects\\AR4all\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=C\:\\Users\\saipavan\\AndroidStudioProjects\\AR4all\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

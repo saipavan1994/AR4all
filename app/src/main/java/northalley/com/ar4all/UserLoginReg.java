@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class UserLoginReg extends FragmentActivity {
     private String pass;
     private boolean yes;
     DBHelper db = new DBHelper(this);
+    UserData ud = new UserData(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,10 @@ public class UserLoginReg extends FragmentActivity {
         /*we are creating instance of the login fragment*
         and it is always loaded when Activity is started/
          */
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         LoginFragmnet login = new LoginFragmnet();
         login.setArguments(getIntent().getExtras());
        // Fragment is loaded into the container
@@ -61,7 +67,10 @@ public class UserLoginReg extends FragmentActivity {
         }
 
         else {
-            addToDb(username,email,password,reenter_password,phone);
+            //addToDb(username,email,password,reenter_password,phone);
+            ud.startConnection();
+            ud.insertTODb(username,email,phone,password);
+            ud.closeConnection();
             LoginFragmnet login = new LoginFragmnet();
             login.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction().replace(R.id.user_reg_login, login).commit();
@@ -78,7 +87,9 @@ public class UserLoginReg extends FragmentActivity {
         Toast.makeText(getApplicationContext(),"Please fill in the details",Toast.LENGTH_SHORT).show();
         }
         else {
-            yes = readFromDb(emal, paswd);
+            ud.startConnection();
+            yes = ud.fromDb(emal, paswd);
+            ud.closeConnection();
             if(yes) {
                 Intent intent = new Intent(this, DrawerActivity.class);
                 startActivity(intent);

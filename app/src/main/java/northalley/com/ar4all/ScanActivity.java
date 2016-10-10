@@ -277,8 +277,7 @@ public class ScanActivity extends Activity implements SampleApplicationControl {
         TargetFinder targetFinder = objectTracker.getTargetFinder();
 
         // Start initialization:
-        if (targetFinder.startI
-        nit(kAccessKey, kSecretKey))
+        if (targetFinder.startInit(kAccessKey, kSecretKey))
         {
             targetFinder.waitUntilInitFinished();
         }
