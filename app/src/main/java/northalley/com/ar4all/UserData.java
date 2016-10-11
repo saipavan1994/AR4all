@@ -24,7 +24,7 @@ class UserData {
     Context cont;
     private String password;
     Connection conn = null;
-    Statement stmt = null;
+    PreparedStatement stmt = null;
     protected UserData(Context context)
     {
       cont = context;
@@ -34,7 +34,7 @@ class UserData {
         try {
             Class.forName(JDBC_DRIVER).newInstance();
             conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-            stmt=conn.createStatement();
+//            stmt=conn.createStatement();
         }catch (SQLException e){e.printStackTrace();} catch(NetworkOnMainThreadException n){n.printStackTrace();}
         catch(Exception e){e.printStackTrace();}
     }
@@ -42,38 +42,50 @@ class UserData {
     {
         try
         {
-            String sql = "INSERT INTO userreg(username,email,phone,password)"+" VALUES("+"'"+usrnm+"'"+", "+"'"+email+"'"+", "+"'"+phone+"'"+", "+"'"+password+"'"+");";
-            stmt.executeUpdate(sql);
+//            String sql = "INSERT INTO userreg(username,email,phone,password)"+" VALUES("+"'"+usrnm+"'"+", "+"'"+email+"'"+", "+"'"+phone+"'"+", "+"'"+password+"'"+");";
+            String sql = "INSERT INTO userreg(username,email,phone,password)"+" VALUES(?,?,?,?);";
+//            stmt.executeUpdate(sql);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,usrnm);
+            pstmt.setString(2,email);
+            pstmt.setString(3,phone);
+            pstmt.setString(4,password);
+            pstmt.execute();
             Toast.makeText(cont,"You are sucessfully registered",Toast.LENGTH_SHORT).show();
+            pstmt.close();
         }catch(SQLException e){e.printStackTrace();}
     }
-    public boolean fromDb(String email,String pass)
+    public int fromDb(String email,String pass)
     {
         ResultSet rs;
 
-        try
-        {
+        try {
             /*String sql = "SELECT password from userreg where email = "+"'"+email+"' ;";
              rs = stmt.executeQuery(sql);*/
             PreparedStatement pstmt = conn.prepareStatement("SELECT password from userreg where email = ?");
-            pstmt.setString(1,email);
-            pstmt.execute();
-            rs = pstmt.getResultSet();
-            while(rs.next())
-            {
-                password = rs.getString("password");
-                Log.d("password",password);
+            pstmt.setString(1, email);
+            rs=pstmt.executeQuery();
+//            rs = pstmt.getResultSet();
+            if (!rs.next()) {
+                Toast.makeText(cont, "please enter a valid email id or Register", Toast.LENGTH_SHORT).show();
+                return 2;
+            } else {
+                do {
+                    password = rs.getString("password");
+                    Log.d("password", password);
 
+                }while (rs.next());
+                pstmt.close();
             }
-        }catch(SQLException e){e.printStackTrace();}
-        if(password.equals(pass))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            if (password.equals(pass)) {
+                return 1;
+            } else {
+                return 0;
+            }
+
     }
     public void closeConnection()
     {

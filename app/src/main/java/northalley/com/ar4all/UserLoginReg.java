@@ -18,7 +18,7 @@ import android.database.SQLException;
 public class UserLoginReg extends FragmentActivity {
 
     private String pass;
-    private boolean yes;
+    private int yes;
     DBHelper db = new DBHelper(this);
     UserData ud = new UserData(this);
     @Override
@@ -90,13 +90,13 @@ public class UserLoginReg extends FragmentActivity {
             ud.startConnection();
             yes = ud.fromDb(emal, paswd);
             ud.closeConnection();
-            if(yes) {
+            if(yes==1) {
                 Intent intent = new Intent(this, DrawerActivity.class);
                 startActivity(intent);
             }
-            else
+            else if(yes==0)
             {
-                Toast.makeText(getApplicationContext(),"Please make sure you have entered correct details",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Please make sure you have entered correct Password",Toast.LENGTH_SHORT).show();
             }
         }
 
