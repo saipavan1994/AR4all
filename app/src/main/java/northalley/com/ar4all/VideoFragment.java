@@ -20,6 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link VideoFragment#newInstance} factory method to
@@ -88,10 +92,10 @@ public class VideoFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        String[] projection1 = {MediaStore.Video.Thumbnails._ID};
+        String[] projection1 = {MediaStore.Video.Thumbnails.DATA};
         vCursor= getContext().getContentResolver().query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, projection1, null, null, MediaStore.Video.Thumbnails.VIDEO_ID);
                // Get the column index of the Thumbnails Video ID
-        vColumnIndex=vCursor.getColumnIndexOrThrow(MediaStore.Video.Thumbnails._ID);
+        vColumnIndex=vCursor.getColumnIndexOrThrow(MediaStore.Video.Thumbnails.DATA);
         gridView.setAdapter(new VideoAdapter(view.getContext()));
         //Here we are setting the listener for user selection, when user touches a thumbnail its position is read by the
         //listener and with that position we can get the path of video
@@ -144,13 +148,15 @@ public class VideoFragment extends Fragment {
             // Move cursor to current position
             vCursor.moveToPosition(position);
             // Get the current value for the requested column
-            int imageID = vCursor.getInt(vColumnIndex);
+            String imageID = vCursor.getString(vColumnIndex);
             // Set the content of the image based on the provided URI
-            videoView.setImageURI(Uri.withAppendedPath(
-                    MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));
+            /*videoView.setImageURI(Uri.withAppendedPath(
+                    MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));*/
             // videoView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            videoView.setPadding(5, 5, 5, 5);
-            videoView.setLayoutParams(new GridView.LayoutParams(200,200));
+            Uri uri = Uri.fromFile(new File(imageID));
+            Picasso.with(context).load(uri).resize(150,150).centerCrop().into(videoView);
+            /*videoView.setPadding(5, 5, 5, 5);
+            videoView.setLayoutParams(new GridView.LayoutParams(200,200));*/
             return videoView;
         }
     }

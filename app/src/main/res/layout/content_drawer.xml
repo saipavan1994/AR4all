@@ -13,11 +13,12 @@
     tools:context="northalley.com.ar4all.DrawerActivity"
     tools:showIn="@layout/app_bar_drawer">
     <TextView
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="30sp"
-        android:text="welcome saipavan"/>
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-condensed"/>
 
 
 </RelativeLayout>

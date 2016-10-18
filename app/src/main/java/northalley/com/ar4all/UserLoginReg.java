@@ -1,9 +1,12 @@
 package northalley.com.ar4all;
 
-import android.app.Activity;
-import android.content.ContentValues;
+
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -15,12 +18,15 @@ import android.widget.Toast;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.SQLException;
 
+
+
 public class UserLoginReg extends FragmentActivity {
 
     private String pass;
     private int yes;
     DBHelper db = new DBHelper(this);
     UserData ud = new UserData(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,19 +67,26 @@ public class UserLoginReg extends FragmentActivity {
         String password=pwd_reg.getText().toString();
         String reenter_password=re_pwd_reg.getText().toString();
         String phone= ph_num.getText().toString();
+        String[] param = {username,email,phone,password};
         if(username.isEmpty()||email.isEmpty()||password.isEmpty()||reenter_password.isEmpty()||phone.isEmpty())
         {
             Toast.makeText(getApplicationContext(),"Please Make Sure You Have Entered All Fields",Toast.LENGTH_SHORT).show();
         }
-
+       else if(!password.equals(reenter_password))
+        {
+            Toast.makeText(getApplicationContext(),"The passwords you entered doesnot match",Toast.LENGTH_SHORT).show();
+        }
+        else if(!isValidEmail(email))
+        {
+            Toast.makeText(getApplicationContext(),"Please enter a valid email ID",Toast.LENGTH_LONG).show();
+        }
         else {
             //addToDb(username,email,password,reenter_password,phone);
-            ud.startConnection();
+            /*ud.startConnection();
             ud.insertTODb(username,email,phone,password);
-            ud.closeConnection();
-            LoginFragmnet login = new LoginFragmnet();
-            login.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().replace(R.id.user_reg_login, login).commit();
+            ud.closeConnection();*/
+            MyAsyncTaskReg myar = new MyAsyncTaskReg();
+            myar.execute(param);
         }
     }
     public void goToMain(View v)
@@ -82,26 +95,26 @@ public class UserLoginReg extends FragmentActivity {
        final EditText eml =(EditText)findViewById(R.id.emailid_text);
        String paswd = pwd.getText().toString();
        String emal = eml.getText().toString();
+        String[] param = {emal,paswd};
+        if(checkConnection()) {
+            if (paswd.isEmpty() || emal.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Please fill in the details", Toast.LENGTH_SHORT).show();
+            } else {
+               /* ud.startConnection();
+                yes = ud.fromDb(emal, paswd);
+                ud.closeConnection();*/
+                MyAsyncTask mya = new MyAsyncTask();
+                mya.execute(param);
 
-        if(paswd.isEmpty()||emal.isEmpty()) {
-        Toast.makeText(getApplicationContext(),"Please fill in the details",Toast.LENGTH_SHORT).show();
+            }
         }
-        else {
-            ud.startConnection();
-            yes = ud.fromDb(emal, paswd);
-            ud.closeConnection();
-            if(yes==1) {
-                Intent intent = new Intent(this, DrawerActivity.class);
-                startActivity(intent);
-            }
-            else if(yes==0)
-            {
-                Toast.makeText(getApplicationContext(),"Please make sure you have entered correct Password",Toast.LENGTH_SHORT).show();
-            }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Please Make Sure You Are Connected to the Internet",Toast.LENGTH_SHORT).show();
         }
 
     }
-    public void addToDb(String user_name,String email,String pass,String re_pass,String pho)
+   /* public void addToDb(String user_name,String email,String pass,String re_pass,String pho)
     {
         SQLiteDatabase dB = db.getWritableDatabase();
         ContentValues val = new ContentValues();
@@ -114,8 +127,8 @@ public class UserLoginReg extends FragmentActivity {
             dB.insert(DBHelper.TABLE_NAME,null,val);
             Toast.makeText(getApplicationContext(), "you are successfully registered", Toast.LENGTH_SHORT).show();
         }catch (SQLException ex){ex.printStackTrace();}
-    }
-    public  boolean readFromDb(String em, String ps)
+    }*/
+    /*public  boolean readFromDb(String em, String ps)
     {
         SQLiteDatabase dB = db.getReadableDatabase();
         String[] projection = {DBHelper.COLUMN_PASSWORD};
@@ -140,12 +153,70 @@ public class UserLoginReg extends FragmentActivity {
         {
             return false;
         }
-    }
+    }*/
     @Override
     public void onDestroy()
     {
         super.onDestroy();
         db.close();
+    }
+    public final static boolean isValidEmail(CharSequence target) {
+        if (target == null) {
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
+    }
+    @SuppressWarnings("deprecation")
+    public boolean checkConnection()
+    {
+        boolean connected=false;
+        ConnectivityManager conn = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] info = conn.getAllNetworkInfo();
+        for (int i = 0; i<info.length; i++){
+            if (info[i].getState() == NetworkInfo.State.CONNECTED){
+                connected = true;
+            }
+
+        }
+        if(connected)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private class MyAsyncTask extends AsyncTask<String,Void,Void>
+    {
+
+        @Override
+        protected Void doInBackground(String... params)
+        {
+          ud.startConnection();
+            ud.fromDb(params[0],params[1]);
+            ud.closeConnection();
+            return null;
+        }
+    }
+    private class MyAsyncTaskReg extends AsyncTask<String,Void,Void>
+    {
+        @Override
+        protected Void doInBackground(String... params)
+        {
+            ud.startConnection();
+            ud.insertTODb(params[0],params[1],params[2],params[3]);
+            ud.closeConnection();
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void param)
+        {
+            LoginFragmnet login = new LoginFragmnet();
+            login.setArguments(getIntent().getExtras());
+            getSupportFragmentManager().beginTransaction().replace(R.id.user_reg_login, login).commit();
+        }
     }
 
 }

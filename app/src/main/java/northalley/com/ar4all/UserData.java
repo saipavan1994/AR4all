@@ -4,6 +4,7 @@ package northalley.com.ar4all;
  * Created by saipavan on 10-10-2016.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.database.*;
 import android.os.NetworkOnMainThreadException;
 import android.provider.ContactsContract;
@@ -21,6 +22,7 @@ class UserData {
     //private static final String DB_NAME="userdetails";
     private static final String USER_NAME = "masterUsername";
     private static final String PASSWORD = "pavan123";
+    protected static String usr;
     Context cont;
     private String password;
     Connection conn = null;
@@ -51,27 +53,28 @@ class UserData {
             pstmt.setString(3,phone);
             pstmt.setString(4,password);
             pstmt.execute();
-            Toast.makeText(cont,"You are sucessfully registered",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(cont,"You are sucessfully registered",Toast.LENGTH_SHORT).show();
             pstmt.close();
         }catch(SQLException e){e.printStackTrace();}
     }
-    public int fromDb(String email,String pass)
+    public void fromDb(String email,String pass)
     {
         ResultSet rs;
 
         try {
             /*String sql = "SELECT password from userreg where email = "+"'"+email+"' ;";
              rs = stmt.executeQuery(sql);*/
-            PreparedStatement pstmt = conn.prepareStatement("SELECT password from userreg where email = ?");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT password,username from userreg where email = ?");
             pstmt.setString(1, email);
             rs=pstmt.executeQuery();
 //            rs = pstmt.getResultSet();
             if (!rs.next()) {
                 Toast.makeText(cont, "please enter a valid email id or Register", Toast.LENGTH_SHORT).show();
-                return 2;
+
             } else {
                 do {
                     password = rs.getString("password");
+                    usr = rs.getString("username");
                     Log.d("password", password);
 
                 }while (rs.next());
@@ -81,9 +84,12 @@ class UserData {
                 e.printStackTrace();
             }
             if (password.equals(pass)) {
-                return 1;
+                Intent intent = new Intent(cont, DrawerActivity.class);
+                intent.putExtra("username",usr);
+                cont.startActivity(intent);
+
             } else {
-                return 0;
+              Toast.makeText(cont,"please enter the correct password",Toast.LENGTH_SHORT);
             }
 
     }

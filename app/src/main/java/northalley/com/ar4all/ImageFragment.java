@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import northalley.com.ar4all.R;
 
@@ -36,6 +41,7 @@ public class ImageFragment extends Fragment {
     private Cursor cursor;
     private String imagePath;
     public int columnIndex;
+    private ImageView picturesView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -91,15 +97,15 @@ public class ImageFragment extends Fragment {
         });
         final GridView gridView = (GridView)view.findViewById(R.id.iamge);
         gridView.setDrawSelectorOnTop(false);
-        String[] projection = {MediaStore.Images.Thumbnails._ID};
+        String[] projection = {MediaStore.Images.Media.DATA};
         // Create the cursor pointing to the SDCard
-        cursor = getContext().getContentResolver().query( MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
+        cursor = getContext().getContentResolver().query( MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 projection, // Which columns to return
                 null,       // Return all rows
                 null,
-                MediaStore.Images.Thumbnails.IMAGE_ID);
+                MediaStore.Images.Media._ID);
         // Get the column index of the Thumbnails Image ID
-        columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Thumbnails._ID);
+        columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         //Here we are setting the listener for user selection, when user touches a thumbnail its position is read by the
         //listener and with that position we can get the path of video
         gridView.setAdapter(new ImageAdapter(view.getContext()));
@@ -143,7 +149,7 @@ public class ImageFragment extends Fragment {
             return position;
         }
         public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView picturesView;
+
 
             picturesView = new ImageView(context);
 
@@ -154,16 +160,36 @@ public class ImageFragment extends Fragment {
             // Move cursor to current position
             cursor.moveToPosition(position);
             // Get the current value for the requested column
-             int imageID = cursor.getInt(columnIndex);
+             String imageID = cursor.getString(columnIndex);
             // Set the content of the image based on the provided URI
-            picturesView.setImageURI(Uri.withAppendedPath(
-                    MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));
-            picturesView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            Log.d("Thumbpath",imageID);
+            Uri uri = Uri.fromFile(new File(imageID));
+           /* picturesView.setImageURI(Uri.withAppendedPath(
+                    MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));*/
+
+
+            /*picturesView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             picturesView.setPadding(5,5, 5, 5);
-            picturesView.setLayoutParams(new GridView.LayoutParams(300,300));
+            picturesView.setLayoutParams(new GridView.LayoutParams(300,300));*/
+            Picasso.with(context).load(uri).resize(150,150).centerCrop().into(picturesView);
             return picturesView;
         }
 
     }
+   /* private class ImageAsyncTask extends AsyncTask<Void,Void,Void>
+    {
+        @Override
+        protected String doInBackground(Void... params)
+        {
+           return params[0];
+        }
+        @Override
+        protected void onPostExecute(int param)
+        {
+            picturesView.setImageURI(Uri.withAppendedPath(
+                    MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));
+
+        }
+    }*/
 
 }
