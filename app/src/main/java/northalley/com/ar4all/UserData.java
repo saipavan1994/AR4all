@@ -23,6 +23,7 @@ class UserData {
     private static final String USER_NAME = "masterUsername";
     private static final String PASSWORD = "pavan123";
     protected static String usr;
+    private int x;
     Context cont;
     private String password;
     Connection conn = null;
@@ -40,7 +41,7 @@ class UserData {
         }catch (SQLException e){e.printStackTrace();} catch(NetworkOnMainThreadException n){n.printStackTrace();}
         catch(Exception e){e.printStackTrace();}
     }
-    public void insertTODb(String usrnm,String email,String phone, String password)
+    public int insertTODb(String usrnm,String email,String phone, String password)
     {
         try
         {
@@ -55,9 +56,11 @@ class UserData {
             pstmt.execute();
            // Toast.makeText(cont,"You are sucessfully registered",Toast.LENGTH_SHORT).show();
             pstmt.close();
+            x=1;
         }catch(SQLException e){e.printStackTrace();}
+        return x;
     }
-    public void fromDb(String email,String pass)
+    public int fromDb(String email,String pass)
     {
         ResultSet rs;
 
@@ -69,8 +72,8 @@ class UserData {
             rs=pstmt.executeQuery();
 //            rs = pstmt.getResultSet();
             if (!rs.next()) {
-                Toast.makeText(cont, "please enter a valid email id or Register", Toast.LENGTH_SHORT).show();
-
+                //\Toast.makeText(cont, "please enter a valid email id or Register", Toast.LENGTH_SHORT).show();
+               x = 0;
             } else {
                 do {
                     password = rs.getString("password");
@@ -79,18 +82,19 @@ class UserData {
 
                 }while (rs.next());
                 pstmt.close();
+                if (password.equals(pass)) {
+                    Intent intent = new Intent(cont, DrawerActivity.class);
+                    intent.putExtra("username",usr);
+                    cont.startActivity(intent);
+
+                } else {
+                    x = 1;
+                }
             }
             }catch(SQLException e){
                 e.printStackTrace();
             }
-            if (password.equals(pass)) {
-                Intent intent = new Intent(cont, DrawerActivity.class);
-                intent.putExtra("username",usr);
-                cont.startActivity(intent);
-
-            } else {
-              Toast.makeText(cont,"please enter the correct password",Toast.LENGTH_SHORT);
-            }
+         return x;
 
     }
     public void closeConnection()

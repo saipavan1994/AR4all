@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.database.sqlite.SQLiteDatabase;
@@ -91,6 +92,8 @@ public class UserLoginReg extends FragmentActivity {
     }
     public void goToMain(View v)
     {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
        final EditText pwd = (EditText)findViewById(R.id.password_text);
        final EditText eml =(EditText)findViewById(R.id.emailid_text);
        String paswd = pwd.getText().toString();
@@ -195,10 +198,22 @@ public class UserLoginReg extends FragmentActivity {
         protected Void doInBackground(String... params)
         {
           ud.startConnection();
-            ud.fromDb(params[0],params[1]);
+          final int y = ud.fromDb(params[0],params[1]);
             ud.closeConnection();
+            runOnUiThread(new Runnable()
+            {
+                public void run()
+                {
+                    if(y==0) {
+                        Toast.makeText(getApplicationContext(), "please enter a valid emailid or Register", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "please enter correct password", Toast.LENGTH_LONG).show();
+                }
+            });
             return null;
         }
+
     }
     private class MyAsyncTaskReg extends AsyncTask<String,Void,Void>
     {
@@ -206,8 +221,17 @@ public class UserLoginReg extends FragmentActivity {
         protected Void doInBackground(String... params)
         {
             ud.startConnection();
-            ud.insertTODb(params[0],params[1],params[2],params[3]);
+            final int y = ud.insertTODb(params[0],params[1],params[2],params[3]);
             ud.closeConnection();
+            runOnUiThread(new Runnable()
+            {
+                public void run()
+                {
+                    if(y==0)
+                        Toast.makeText(getApplicationContext(), "You are successfully registered", Toast.LENGTH_SHORT).show();
+
+                }
+            });
             return null;
         }
         @Override

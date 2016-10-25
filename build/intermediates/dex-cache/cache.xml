@@ -84,15 +84,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\saipavan\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_f783369cc97a64575ce94d08a9cb12b75ad6f9f1.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -108,6 +99,15 @@
         revision="24.0.2"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
         <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_ca81b817d713415820df552a17c88968b235d06a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\saipavan\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_f783369cc97a64575ce94d08a9cb12b75ad6f9f1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="26c04d4544edbd36066653042324366aa97e82a4">
+        sha1="d606b955f54365398c784ff4a1d8925ae37d2135">
         <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_534370dc95dca428961e34765e96a9cf002ac384.jar" />
     </item>
     <item
@@ -187,7 +187,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="8415fc7dba6066e5c263949f0b208166b8f282b1">
+        sha1="65ba2d20299b5c78443bac858d2f35b78d8dc7c9">
         <dex dex="C:\Users\saipavan\AndroidStudioProjects\AR4all\app\build\intermediates\pre-dexed\debug\instant-run_1271029fa06a883531f2096181d8f4617f4d43e9.jar" />
     </item>
     <item
